@@ -23,6 +23,7 @@ class MySQLTest < Minitest::Test
     assert_equal Array, actual.class
     assert_equal true, actual.include?('users')
     assert_equal false, actual.include?('schema_migrations')
+    assert_equal 3, actual.size
   end
 
   def test_it_has_entities
