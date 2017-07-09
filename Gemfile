@@ -5,6 +5,7 @@ gemspec
 
 gem 'sequel'
 gem 'mysql2'
+gem 'ruby-graphviz'
 
 
 group :development do

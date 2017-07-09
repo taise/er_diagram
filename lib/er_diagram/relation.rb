@@ -16,10 +16,10 @@ module ErDiagram
     def self.guess(db)
       tables = db.tables
       candidates = tables.map { |table| candidates(db, table)}.flatten(1)
-      candidates.select do |table, column|
+      candidates.map do |table, column|
         relation_table = pluralize(column)
         [table, relation_table] if tables.include?(relation_table)
-      end
+      end.compact
     end
   end
 end

@@ -18,7 +18,8 @@ class RelationTest < Minitest::Test
     actual = ErDiagram::Relation.guess(@db)
     assert_equal Array, actual.class
     assert_equal 2, actual.size
-    # TODO: assertions for values of table relations
+    assert actual.include?(['user_roles', 'users'])
+    assert actual.include?(['user_roles', 'roles'])
   end
 
   def test_it_makes_table_name_be_pluralize
