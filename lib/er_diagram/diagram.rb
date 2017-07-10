@@ -5,7 +5,7 @@ require 'graphviz'
 module ErDiagram
   class Diagram
     def self.output(db, tables, file: 'er_diagram.png')
-      g = GraphViz.new( :G, :type => :digraph )
+      g = GraphViz.new( :G, type: :digraph, layout: 'fdp')
 
       # FIXME: ducktyping
       nodes = {}
@@ -20,6 +20,7 @@ module ErDiagram
   end
 end
 
+# FIXME: move to er_diagram.rb
 require_relative '../../test/fixtures/mysql_setup'
 require 'er_diagram/db/mysql'
 require 'er_diagram/relation'
